@@ -10,9 +10,10 @@ module Rulers
         [404,
         {'content-type' => 'text/html'}, []]
       end
+
       klass, act = get_controller_and_action(env)
       controller = klass.new(env)
-      text = controller.send(act)
+      text = controller.send(act.nil? ? "index" : act)
       [200, {'content-type' => 'text/html'},
         [text]]
     end

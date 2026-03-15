@@ -3,6 +3,9 @@ module Rulers
     def get_controller_and_action(env)
       _, cont, action, after = env["PATH_INFO"].split('/', 4)
       cont = cont.capitalize
+      if cont == ""
+        cont += "Home"
+      end
       cont += "Controller"
       
       # Object should have a list of all registered Classes so this should also contain XXXController
