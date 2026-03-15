@@ -3,14 +3,10 @@
 require_relative "rulers/version"
 
 module Rulers
-  class Error < StandardError; end
-  
   class Application
     def call(env)
-      run proc {
-        [200, {'content-type' => 'text/html'}, 
-          ['Hello World from the Gem']]
-      }
+      [200, {'content-type' => 'text/html'},
+        ["Hello from Ruby on Rulers!"]]
     end
   end
 end
