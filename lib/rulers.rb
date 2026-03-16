@@ -4,6 +4,7 @@ require_relative "rulers/version"
 require_relative "rulers/routing"
 require_relative "rulers/util"
 require_relative "rulers/dependencies"
+require_relative "rulers/controller"
 
 module Rulers
   class Application
@@ -18,16 +19,6 @@ module Rulers
       text = controller.send(act.nil? ? "index" : act)
       [200, {'content-type' => 'text/html'},
         [text]]
-    end
-  end
-
-  class Controller
-    def initialize(env)
-      @env = env
-    end
-
-    def env
-      @env
     end
   end
 end
